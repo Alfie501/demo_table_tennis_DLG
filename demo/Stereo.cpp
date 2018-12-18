@@ -26,16 +26,16 @@ float b_l[3] = { 333.1572, -3.0507, 12.0387 };     // calcultae by => b_l= -R_LR
 
 //translation : vector from camera to world coordinate in camera coordinate
 //float T_c[3] = { -653.412609, 712.541980, 1830.124562 };
-float T_c[3] = { -20.038870, 85.227301, 2087.853928 };								//		%------Extrinsic_parameters
+float T_c[3] = { -641.5179950898146, 313.9662562701072, 1238.0834001743515 };								//		%------Extrinsic_parameters
 
 //rotation matrix:  world coordinate rotate to left camera coordinate
 //float R_cw[3][3] = { { 0.997897, -0.053149, 0.037096 },
 //					{ -0.025434, -0.847544, -0.530115 },
 //					{ 0.059615, 0.528057, -0.847114 } };
 
-float R_cw[3][3] = { { -0.000564, 0.999910, 0.013410 },								//		%------Extrinsic_parameters
-					 { 0.999959, 0.000684, -0.008976 },
-					 { -0.008985, 0.013405, -0.999870 } };
+float R_cw[3][3] = { {0.999655, 0.025787, 0.005002 },								//		%------Extrinsic_parameters
+					 { 0.011729, -0.267821, -0.963397 },
+					 { -0.023503, 0.963124, -0.268031 } };
 
 
 
