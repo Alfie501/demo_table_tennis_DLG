@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Stereo.h"
-using namespace mao;
+using namespace mao_style;
 
 #if 1
 //***intrinsic parameters***// 

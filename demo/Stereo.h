@@ -2,7 +2,7 @@
 #include <math.h>
 using namespace std;
 
-namespace mao{
+namespace mao_style{
 
 	typedef enum{
 		LeftCamera,
