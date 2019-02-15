@@ -4,39 +4,52 @@ using namespace mao_style;
 
 #if 1
 //***intrinsic parameters***// 
-float fu_left = 1807.76922, fv_left = 1808.34961, u0_left = 1049.16958, v0_left = 823.13503;
-float fu_right = 1780.65692, fv_right = 1789.44654, u0_right = 1016.83872, v0_right = 843.98094;
+//float fu_left = 1807.76922, fv_left = 1808.34961, u0_left = 1049.16958, v0_left = 823.13503;
+//float fu_right = 1780.65692, fv_right = 1789.44654, u0_right = 1016.83872, v0_right = 843.98094;
+float fu_left = 1774.40462, fv_left = 1774.41522, u0_left = 1044.21694, v0_left = 791.24719;
+float fu_right = 1770.49819, fv_right = 1771.21403, u0_right = 1058.79225, v0_right = 783.14317 ;
   
 //***iamge correction parameters***//		  %----matlab image_correction_new get "p" parameter
-float kc_left[8] = { -3.759209778413423e-05, 0.012099647989555, -0.003430944663772, 4.996802562484074e-05, 9.203012505855646e-04, -0.010204633289137, 0.002757224228166, -4.104620807973691e-05 };
-float kc_right[8] = { -0.016847931046896, 0.020687972062559, -0.010455112452432, 0.002761616897140, 0.014292540726086, -0.018127270998962, 0.007699926422002, -0.001874244202830 };
+//float kc_left[8] = { -3.759209778413423e-05, 0.012099647989555, -0.003430944663772, 4.996802562484074e-05, 9.203012505855646e-04, -0.010204633289137, 0.002757224228166, -4.104620807973691e-05 };
+//float kc_right[8] = { -0.016847931046896, 0.020687972062559, -0.010455112452432, 0.002761616897140, 0.014292540726086, -0.018127270998962, 0.007699926422002, -0.001874244202830 };
+float kc_left[8] = { -0.00342513225276257, 0.00482606693792004, -0.000869624952719960, 0.00162981708278467, 0.00224064170368965, -0.00350457317543862, 0.000507473126696585, -0.00122711100596783 };
+float kc_right[8] = { -0.00417866607115308, 0.00511725234683099, -0.000589842352381994, 0.000360060846119106, 0.00318746564439992, -0.00395742866486323, 0.000327094938515592, -0.000261444639773317 };
 
 //***extrinsic parameters between left camera and right camera***//
 //extrinsic parameters from matlab 
 //rotation matrix : left rotate to right (R_RL), same as matlab calibration output			%----matlab calibration output
+//float R_rl[3][3] = {
+//			{ 0.9817, -0.0033, 0.1903},
+//			{ 0.0062, 0.9999, -0.0150 },
+//			{ -0.1902, 0.0159, 0.9816 }
+//};
 float R_rl[3][3] = {
-			{ 0.9817, -0.0033, 0.1903},
-			{ 0.0062, 0.9999, -0.0150 },
-			{ -0.1902, 0.0159, 0.9816 }
+			{ 0.9870, -0.0016, 0.1607},
+			{ 0.0014, 1.0000, 0.0011 },
+			{ -0.1607, -0.0008, 0.9870 }
 };
 
-float b_l[3] = { 333.1572, -3.0507, 12.0387 };     // calcultae by => b_l= -R_LR*b_r  , b_r is given from matlab		%--- b_r is given from matlab " T " // R_LR = inv(R_rl)
+float b_l[3] = { 335.3433, -2.0855, -1.9144 };
+//float b_l[3] = { 333.1572, -3.0507, 12.0387 };     // calcultae by => b_l= -R_LR*b_r  , b_r is given from matlab		%--- b_r is given from matlab " T " // R_LR = inv(R_rl)
 													//caclculate by b_l = (inv((R_rl')*R_rl)*(R_rl'))*b_r  ??  b_l= -R_LR*b_r    the same...  2018-10 
 //***extrinsic parameter between left camera and world coordinate***//
 
 //translation : vector from camera to world coordinate in camera coordinate
 //float T_c[3] = { -653.412609, 712.541980, 1830.124562 };
-float T_c[3] = { -641.5179950898146, 313.9662562701072, 1238.0834001743515 };								//		%------Extrinsic_parameters
+//float T_c[3] = { -641.5179950898146, 313.9662562701072, 1238.0834001743515 };								//		%------Extrinsic_parameters
+float T_c[3] = { -660.824314,353.179300,1249.172265 };
 
 //rotation matrix:  world coordinate rotate to left camera coordinate
 //float R_cw[3][3] = { { 0.997897, -0.053149, 0.037096 },
 //					{ -0.025434, -0.847544, -0.530115 },
 //					{ 0.059615, 0.528057, -0.847114 } };
 
-float R_cw[3][3] = { {0.999655, 0.025787, 0.005002 },								//		%------Extrinsic_parameters
-					 { 0.011729, -0.267821, -0.963397 },
-					 { -0.023503, 0.963124, -0.268031 } };
-
+//float R_cw[3][3] = { {0.999655, 0.025787, 0.005002 },								//		%------Extrinsic_parameters
+//					 { 0.011729, -0.267821, -0.963397 },
+//					 { -0.023503, 0.963124, -0.268031 } };
+float R_cw[3][3] = { {0.998792, 0.048559, 0.007556 },								//		%------Extrinsic_parameters
+					 { 0.021397, -0.291292, -0.956395 },
+					 { -0.044240, 0.955401, -0.291979 } };
 
 
 //rotation matrix:  left camera coordinate rotate to world coordinate
