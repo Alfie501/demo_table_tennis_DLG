@@ -221,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="cpp.hint" />
     <None Include="res\demo.rc2" />
   </ItemGroup>
   <ItemGroup>
