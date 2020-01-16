@@ -15,7 +15,7 @@ namespace mao_style{
 		Camera(float camera_fu, float camera_fv, float camera_u0, float camera_v0, float camera_kc[8]);
 		float Ix, Iy;
 		float Idx, Idy;
-		float fu, fv;//need initialize
+		float fu, fv;//need initialize 
 		float u0, v0;//need initialize
 		float h_x, h_y, h_z;
 		float h_dx, h_dy, h_dz;

@@ -8,7 +8,7 @@
 #include <fstream>
 #include <Windows.h>
 
-//*** for float and double precision ***//
+//*** for float and double precision ***// 
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/math/special_functions/gamma.hpp>
 #include <limits>

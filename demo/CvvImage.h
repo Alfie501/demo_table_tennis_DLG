@@ -8,7 +8,7 @@ class  CvvImage
 public:
    CvvImage();
    virtual ~CvvImage();
-   /* Create image (BGR or grayscale) */
+   /* Create image (BGR or grayscale) */ 
    virtual bool  Create( int width, int height, int bits_per_pixel, int image_origin = 0 );
    /* Load image from specified file */
    virtual bool  Load( const char* filename, int desired_color = 1 );
