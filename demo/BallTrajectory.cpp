@@ -20,7 +20,7 @@ param LstSquQuadRegr::GetCoefficient(){
 	return poly_coefficient;
 }
 
-bool LstSquQuadRegr::CalcQuadraticRoot(){  //(-b+-sqrt(b^2-4ac))/2a
+bool LstSquQuadRegr::CalcQuadraticRoot(){  //(-b+-sqrt(b^2-4ac))/2a 
 	
 	Real discriminant = pow(poly_coefficient.b, 2) - 4 * poly_coefficient.a*poly_coefficient.c; //b^2-4ac	//使用2階多項式的 b^2-4ac > 0 判斷是否有跟x交點兩次
 

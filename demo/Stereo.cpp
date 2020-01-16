@@ -189,7 +189,7 @@ void Stereo::setCamera(LeftOrRight choose, float camera_fu, float camera_fv, flo
 		Camera_left.kc7 = camera_kc[6];
 		Camera_left.kc8 = camera_kc[7];
 	}
-	if (choose == RightCamera){//Right Camera
+	if (choose == RightCamera){//Right Camera 
 		cout << "setting Right camera initial parameter" << endl;
 
 		Camera_right.fu = camera_fu;

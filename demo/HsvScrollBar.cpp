@@ -9,7 +9,7 @@
 //***使用父對話框之變數***//
 //子對話框之指標
 extern CHsvScrollBar* pHsvdlg; 
-//initial value for ball color 
+//initial value for ball color  
 extern UINT hmin, hmax, smin, smax, vmin, vmax;
 UINT hmin_old, hmax_old, smin_old, smax_old, vmin_old, vmax_old; //記住初始值，如果按取消按鈕，可以回復到初始值
 //if call hsv modeless dialog

@@ -236,7 +236,7 @@ void  CvvImage::DrawToHDC( HDC hDCDst, RECT* pDstRect )
       if( roi.width > dst.width )
       {
          SetStretchBltMode(
-            hDCDst,           // handle to device context
+            hDCDst,           // handle to device context 
             HALFTONE );
       }
       else
