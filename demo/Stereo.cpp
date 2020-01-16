@@ -4,63 +4,57 @@ using namespace mao_style;
 
 #if 1
 //***intrinsic parameters***// 
-//float fu_left = 1774.40462, fv_left = 1774.41522, u0_left = 1044.21694, v0_left = 791.24719;
-//float fu_right = 1770.49819, fv_right = 1771.21403, u0_right = 1058.79225, v0_right = 783.14317 ;
-float fu_left = 1771.29450, fv_left = 1772.26299, u0_left = 1050.96239, v0_left = 794.69331;
-float fu_right = 1767.04086, fv_right = 1767.46966, u0_right = 1065.93038, v0_right = 786.28660;
-
+//float fu_left = 1771.29450, fv_left = 1772.26299, u0_left = 1050.96239, v0_left = 794.69331;
+//float fu_right = 1767.04086, fv_right = 1767.46966, u0_right = 1065.93038, v0_right = 786.28660;
+float fu_left = 1780.67243, fv_left = 1779.40209, u0_left = 1044.47612, v0_left = 794.57946;
+float fu_right = 1773.81215, fv_right = 1773.34476, u0_right = 1055.18051, v0_right = 787.23829;
   
 //***iamge correction parameters***//		  %----matlab image_correction_new get "p" parameter
-//float kc_left[8] = { -0.00342513225276257, 0.00482606693792004, -0.000869624952719960, 0.00162981708278467, 0.00224064170368965, -0.00350457317543862, 0.000507473126696585, -0.00122711100596783 };
-//float kc_right[8] = { -0.00417866607115308, 0.00511725234683099, -0.000589842352381994, 0.000360060846119106, 0.00318746564439992, -0.00395742866486323, 0.000327094938515592, -0.000261444639773317 };
-float kc_left[8] = { -0.004907231147251, 0.002960456029719, -0.001660297660146, 2.400318452386080e-04, 0.004153775267758, -0.002827985759285, 0.001212721016294, -1.664398110085841e-04 };
-float kc_right[8] = { -0.007910210851360, 0.014615384935610, -7.196922805089618e-04, -6.799936222742662e-04, 0.006322570670544, -0.012293632699295, 4.272529887890987e-04, 4.354500380622517e-04 };
+//float kc_left[8] = { -0.004907231147251, 0.002960456029719, -0.001660297660146, 2.400318452386080e-04, 0.004153775267758, -0.002827985759285, 0.001212721016294, -1.664398110085841e-04 };
+//float kc_right[8] = { -0.007910210851360, 0.014615384935610, -7.196922805089618e-04, -6.799936222742662e-04, 0.006322570670544, -0.012293632699295, 4.272529887890987e-04, 4.354500380622517e-04 };
+float kc_left[8] = { -0.006353046506854, 0.005594470149711, -0.001619778193004, 0.001010184309294, 0.004972125217032, -0.004470955971120, 0.001047339819927, -7.170590870094057e-04 };
+float kc_right[8] = { -0.011404124580104, 0.022973922972679, -0.001068390511635, 7.001414550224595e-04, 0.008146325572365, -0.017932116182866, 4.309545280572341e-04, -5.575917189171165e-04 };
 
 //***extrinsic parameters between left camera and right camera***//
 //extrinsic parameters from matlab 
 //rotation matrix : left rotate to right (R_RL), same as matlab calibration output			%----matlab calibration output
 
-//float R_rl[3][3] = {
-//			{ 0.9817, -0.0033, 0.1903},
-//			{ 0.0062, 0.9999, -0.0150 },
-//			{ -0.1902, 0.0159, 0.9816 }
-//};
-//float R_rl[3][3] = {
-//			{ 0.9870, -0.0016, 0.1607},
-//			{ 0.0014, 1.0000, 0.0011 },
-//			{ -0.1607, -0.0008, 0.9870 }
+//float R_rl[3][3] = {					
+//			{ 0.9873, -0.0022, 0.1590},
+//			{ 0.0019, 1.0000, 0.0022 },
+//			{ -0.1590, -0.0018, 0.9873 }
 //};
 float R_rl[3][3] = {
-			{ 0.9873, -0.0022, 0.1590},
-			{ 0.0019, 1.0000, 0.0022 },
-			{ -0.1590, -0.0018, 0.9873 }
+			{ 0.9878, -0.0022,  0.1557},
+			{ 0.0019,  1.0000,  0.0019 },
+			{ -0.1557, -0.0016,  0.9878 }
 };
 
-//float b_l[3] = { 335.3433, -2.0855, -1.9144 };
-float b_l[3] = { 335.9368, -0.7154, -0.6220 };
 
-//float b_l[3] = { 333.1572, -3.0507, 12.0387 };     // calcultae by => b_l= -R_LR*b_r  , b_r is given from matlab		%--- b_r is given from matlab " T " // R_LR = inv(R_rl)
-													//caclculate by b_l = (inv((R_rl')*R_rl)*(R_rl'))*b_r  ??  b_l= -R_LR*b_r    the same...  2018-10 
+//float b_l[3] = { 335.9368, -0.7154, -0.6220 };
+float b_l[3] = { 336.5182, -0.9323, -1.3177 };
+
+// calcultae by => b_l= -R_LR*b_r  , b_r is given from matlab		%--- b_r is given from matlab " T "  //R_LR = inv(R_rl)
+//caclculate by b_l = (inv((R_rl')*R_rl)*(R_rl'))*b_r  ??  b_l= -R_LR*b_r    the same...  2018-10 
 
 
 //***extrinsic parameter between left camera and world coordinate***//
 
 //translation : vector from camera to world coordinate in camera coordinate
-//float T_c[3] = { -641.5179950898146, 313.9662562701072, 1238.0834001743515 };								//		%------Extrinsic_parameters
-float T_c[3] = { -856.719067, 	 486.885070, 	 1495.588699 };
-
+//float T_c[3] = { -842.449940, 485.552512, 1496.50269 };
+//float T_c[3] = { -843.842244, 	 492.162807, 	 1499.521777 };
+float T_c[3] = { -850.386192,	 487.585502 ,	 1503.391583 };
 
 //rotation matrix:  world coordinate rotate to left camera coordinate
-//float R_cw[3][3] = { {0.999655, 0.025787, 0.005002 },								//		%------Extrinsic_parameters
-//					 { 0.011729, -0.267821, -0.963397 },
-//					 { -0.023503, 0.963124, -0.268031 } };
-float R_cw[3][3] = { {0.999743, -0.022186, 0.004651 },								//		%------Extrinsic_parameters
-					 { -0.006409, -0.473442, -0.880802 },
-					 { 0.021743, 0.880546, -0.473462 } };
-//float R_cw[3][3] = { {0.999765, -0.021243,	 0.004397 },								//		%------Extrinsic_parameters
-//					 { -0.006199, -0.473994, -0.880506 },
-//					 { 0.020789, 0.880272, -0.474014 } };
-
+//float R_cw[3][3] = { {0.999784, - 0.020291,	 0.004488 },								//		%------Extrinsic_parameters
+//					 { -0.005652, -0.473340, -0.880862 },
+//					 { 0.019998, 0.880646, -0.473352 } };
+//float R_cw[3][3] = { {0.999626, - 0.027010, 	 0.004382 },								//		%------Extrinsic_parameters
+//					 {-0.008919, - 0.473020, - 0.881007},
+//					 { 0.025869, 	 0.880638, - 0.473084 } };
+float R_cw[3][3] = { {0.999678, - 0.025318, 	 0.001591 },								//		%------Extrinsic_parameters
+					 {-0.010625, - 0.474812, - 0.880023},
+					 { 0.023036, 	 0.879723, - 0.474928  } };
 //rotation matrix:  left camera coordinate rotate to world coordinate
 float R_wc[3][3] = { { R_cw[0][0], R_cw[1][0], R_cw[2][0] },
 					 { R_cw[0][1], R_cw[1][1], R_cw[2][1] },
@@ -230,11 +224,11 @@ void Stereo::initialize(float R[3][3], float b[3]){
 
 void Stereo::NON_SSG(){
 #if 1
-	k = (RotationMatrix_RL[0][0] / Camera_left.fu)*(Camera_left.Ix - Camera_left.u0) +
-		(RotationMatrix_RL[0][1] / Camera_left.fv)*(Camera_left.Iy - Camera_left.v0) + RotationMatrix_RL[0][2] -
-		((Camera_right.Ix - Camera_right.u0) / Camera_right.fu)*
-		(RotationMatrix_RL[2][0] / Camera_left.fu*(Camera_left.Ix - Camera_left.u0) +
-		RotationMatrix_RL[2][1] / Camera_left.fv*(Camera_left.Iy - Camera_left.v0) + RotationMatrix_RL[2][2]);
+	k = (RotationMatrix_RL[0][0] / Camera_left.fu) * (Camera_left.Ix - Camera_left.u0) +
+		(RotationMatrix_RL[0][1] / Camera_left.fv) * (Camera_left.Iy - Camera_left.v0) + RotationMatrix_RL[0][2] -
+		((Camera_right.Ix - Camera_right.u0) / Camera_right.fu) *
+		((RotationMatrix_RL[2][0] / Camera_left.fu) * (Camera_left.Ix - Camera_left.u0) +
+		(RotationMatrix_RL[2][1] / Camera_left.fv) * (Camera_left.Iy - Camera_left.v0) + RotationMatrix_RL[2][2]);
 
 	Camera_left.h_z = (1 / k)*(d[0] - d[2] * (Camera_right.Ix - Camera_right.u0) / Camera_right.fu);
 	Camera_left.h_x = (1 / k)*(d[0] - d[2] * (Camera_right.Ix - Camera_right.u0) / Camera_right.fu)*(Camera_left.Ix - Camera_left.u0) / Camera_left.fu;
